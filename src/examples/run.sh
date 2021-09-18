@@ -2,9 +2,9 @@
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE:-$0}")" || exit; pwd)"
 
-bazel --nosystem_rc --nohome_rc build //:example
+bazel --nosystem_rc --nohome_rc build //:simple_kv_store
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    DYLD_LIBRARY_PATH="$ROOT_DIR/thirdparty/lib" "${ROOT_DIR}"/bazel-bin/example
+    DYLD_LIBRARY_PATH="$ROOT_DIR/thirdparty/lib" "${ROOT_DIR}"/bazel-bin/simple_kv_store
 else
-    LD_LIBRARY_PATH="$ROOT_DIR/thirdparty/lib" "${ROOT_DIR}"/bazel-bin/example
+    LD_LIBRARY_PATH="$ROOT_DIR/thirdparty/lib" "${ROOT_DIR}"/bazel-bin/simple_kv_store
 fi
